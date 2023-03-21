@@ -233,9 +233,9 @@
                     <a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span
                             ></span></a>
                     <ul>
-                        <li><a href="departments.html">Department List</a></li>
-                        <li><a href="add-department.html">Department Add</a></li>
-                        <li><a href="edit-department.html">Department Edit</a></li>
+                        <li><a href="{% url 'department_page' %}">Department List</a></li>
+                        <li><a href="{% url 'signup_page' %}">Department Add</a></li>
+                        <li><a href="{% url 'signin_page' %}">Department Edit</a></li>
                     </ul>
                 </li>
                 
@@ -267,7 +267,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="event.html"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
+                    <a href="{% url 'event_page' %}"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
                 </li>
 
 
@@ -304,8 +304,6 @@
 </div>
 
 
-
-
 <div class="page-wrapper mt-0">
     <div class="content container-fluid">
         <div class="row">
@@ -320,6 +318,7 @@
                                     data-bs-toggle="tab">Profile</a></li>
                             <li class="nav-item "><a class="nav-link" href="#basic-justified-tab2"
                                     data-bs-toggle="tab">Security</a></li>
+
                             <li class="nav-item dropdown">
                                 <a href="#" class="dropdown-toggle nav-link active" data-bs-toggle="dropdown"
                                     aria-expanded="false">Add Data</a>
@@ -328,8 +327,13 @@
                                         aria-expanded="true">Add Book</a>
                                     <a class="dropdown-item" href="#basic-justified-tab4" data-bs-toggle="tab"
                                         aria-expanded="true">Add Club</a>
+                                    <a class="dropdown-item" href="#basic-justified-tab5" data-bs-toggle="tab"
+                                        aria-expanded="true">Add Department</a>
+                                    <a class="dropdown-item" href="#basic-justified-tab6" data-bs-toggle="tab"
+                                        aria-expanded="true">Add Event</a>
                                 </div>
                             </li>
+                            
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="basic-justified-tab1">
@@ -467,6 +471,7 @@
                                 </form>
 
                             </div>
+
                             <div class="tab-pane" id="basic-justified-tab3">
                                 <form action="{% url 'add_book_data' %}" method="post">
                                     {% csrf_token %}
@@ -513,6 +518,7 @@
                                     </div>
                                 </form>
                             </div>
+
                             <div class="tab-pane" id="basic-justified-tab4">
                                 <form action="{% url 'add_club' %}" method="post">
                                     {% csrf_token %}
@@ -566,6 +572,94 @@
                                     </div>
                                 </form>
                             </div>
+
+                            <div class="tab-pane" id="basic-justified-tab5">
+                                <form action="{% url 'add_department' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- <h5 class="form-title"><span>@{{user_data.Address}}'s Account</span></h5> -->
+                                        </div>
+                                        <div class="col-12 col-sm-12">
+                                            <div class="form-group local-forms">
+                                                <label>Department Name<span class="login-danger">*</span></label>
+                                                <input type="text" name='depart_name' class="form-control"
+                                                    placeholder="Department Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group local-forms">
+                                                <label>Head Of Department <span class="login-danger">*</span></label>
+                                                <input type="text" name="headofdepart" class="form-control"
+                                                    placeholder="Head Of Department" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group local-forms">
+                                                <label>Total Faculty <span class="login-danger">*</span></label>
+                                                <input type="text" class="form-control" name="total_faculty"
+                                                    placeholder="Total Faculty" required>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="popover-list">
+                                                <button type="submit" class="btn btn-primary" data-bs-toggle="tooltip"
+                                                    data-bs-html="true" title="">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="tab-pane" id="basic-justified-tab6">
+                                <form action="{% url 'add_event' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- <h5 class="form-title"><span>@{{user_data.Address}}'s Account</span></h5> -->
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group local-forms">
+                                                <label>Event Name<span class="login-danger">*</span></label>
+                                                <input type="text" name='event_name' class="form-control"
+                                                    placeholder="Event Name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group local-forms">
+                                                <label>Event Date <span class="login-danger">*</span></label>
+                                                <input class="form-control " name='event_date' type="date"
+                                                    placeholder="YYYY-MM-DD" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group local-forms">
+                                                <label>Event Time <span class="login-danger">*</span></label>
+                                                <input type="text" class="form-control" name="event_time"
+                                                    placeholder="Event Time" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group local-forms">
+                                                <label>Chief Guest <span class="login-danger">*</span></label>
+                                                <input type="text" class="form-control" name="chief_guest"
+                                                    placeholder="Chief Guest" required>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="popover-list">
+                                                <button type="submit" class="btn btn-primary" data-bs-toggle="tooltip"
+                                                    data-bs-html="true" title="">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>

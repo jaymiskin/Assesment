@@ -92,3 +92,27 @@ class Book(models.Model):
 
     def __str__(self) -> str:
         return self.Book_Name
+
+
+class Department(models.Model):
+    Depart_Name=models.CharField(max_length=40)
+    HeadOfDepart=models.CharField(max_length=40)
+    Total_Faculty=models.CharField(max_length=10)
+
+    class Meta:
+        db_table='department'
+    
+    def __str__(self)-> str:
+        return self.Depart_Name
+
+class Event(models.Model):
+    Event_Name=models.CharField(max_length=40)
+    Event_Date=models.DateField(default='2022-11-21')
+    Event_Time=models.CharField(max_length=10)
+    Chief_Guest=models.CharField(max_length=10)
+
+    class Meta:
+        db_table='event'
+    
+    def __str__(self)-> str:
+        return self.Event_Name

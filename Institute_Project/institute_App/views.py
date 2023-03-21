@@ -64,6 +64,15 @@ def club_page(request):
     return render(request,'club_page.html', data)
 
 
+def event_page(request):
+    event_data(request) #load event data
+    return render(request,'event_page.html', data)
+    
+def department_page(request):
+    department_data(request) #load department data
+    return render(request,'department_page.html', data)
+
+
 #club data
 def club_data(request):
     print(request.POST)
@@ -371,3 +380,45 @@ def book_delete(request,book_name):
     book=Book.objects.filter(Book_Name =book_name)
     book.delete()
     return redirect(book_page)
+
+
+# Add department    
+def add_department(request):
+    print(request.POST)
+    
+    Department.objects.create(
+        Depart_Name=request.POST['depart_name'],
+        HeadOfDepart=request.POST['headofdepart'],
+        Total_Faculty=request.POST['total_faculty'],
+        )
+
+    print('successfully')
+    return redirect(department_page)
+
+# Department data
+def department_data(request):
+    # print(request.POST)
+    department = Department.objects.all()
+    data['department'] = department
+
+
+# Add Event  
+def add_event(request):
+    print(request.POST)
+    
+    Event.objects.create(
+        Event_Name=request.POST['event_name'],
+        Event_Date=request.POST['event_date'],
+        Event_Time=request.POST['event_time'],
+        Chief_Guest=request.POST['chief_guest'],
+        )
+
+    print('successfully')
+    return redirect(event_page)
+
+
+# Add data
+def event_data(request):
+    # print(request.POST)
+    event = Event.objects.all()
+    data['event'] = event

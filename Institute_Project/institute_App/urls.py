@@ -23,6 +23,11 @@ urlpatterns = [
     path('club_page/',club_page,name='club_page'),
     path('update_profile_page/',update_profile_page,name='update_profile_page'),
 
+    path('department_page/',department_page,name='department_page'),
+    path('event_page/',event_page,name='event_page'),
+
+
+
 
 
 
@@ -54,4 +59,12 @@ urlpatterns = [
 
     path('club_delete/<str:club_name>',club_delete,name='club_delete'),
     path('book_delete/<str:book_name>',book_delete,name='book_delete'),
+
+    path('add_department/',add_department,name='add_department'),
+    path('add_event/',add_event,name='add_event'),
+    path('event_data/',event_data,name='event_data'),
+    path('department_data/',department_data,name='department_data'),
+
+
+
 ]
