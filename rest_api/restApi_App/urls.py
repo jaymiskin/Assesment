@@ -3,8 +3,6 @@ from .views import *
 
 urlpatterns = [
     
-    path('item/', ItemList.as_view()),
-    path('item/<int:pk>/', ItemDetail.as_view()),
-    path('location/', LocationList.as_view()),
-    path('location/<int:pk>/', LocationDetail.as_view()),
+    path('api/', PostList.as_view()),
+    path('api/<int:pk>/', PostDetail.as_view()),
 ]

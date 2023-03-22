@@ -3,7 +3,7 @@ from .models import *
 from .serializers import *
 
 
-class ItemList(generics.ListCreateAPIView):
+class PostList(generics.ListCreateAPIView):
     serializer_class = ItemSerializers
 
 
@@ -15,19 +15,6 @@ class ItemList(generics.ListCreateAPIView):
         return queryset
     
 
-class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ItemSerializers
     queryset = Item.objects.all()
-
-
-
-class LocationList(generics.ListCreateAPIView):
-    serializer_class = LocationSerializers
-    queryset = Location.objects.all()
-
-
-
-
-class LocationDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = LocationSerializers
-    queryset = Location.objects.all()

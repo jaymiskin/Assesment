@@ -5,10 +5,3 @@ class ItemSerializers(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ('__all__')
-
-
-
-class LocationSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = Location
-        fields = ('__all__')
