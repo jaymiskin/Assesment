@@ -1,7 +1,11 @@
+from django.shortcuts import render
 from rest_framework import generics
 from .models import *
 from .serializers import *
 
+
+def redirect(request):
+    return render(request, "redirect.html")
 
 class PostList(generics.ListCreateAPIView):
     serializer_class = ItemSerializers
